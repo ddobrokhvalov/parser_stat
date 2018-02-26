@@ -27,6 +27,14 @@ class api_parser{
 	*Получение данных от API (общий метод)
 	*/
 	public function read_data(){
+		if($this->api_config["parse_period"]){
+			$start_date = date("Y-m-d", strtotime("- ".($this->api_config["parse_period"]-1)." days"));
+		}else{
+			$start_date = date("Y-m-d");
+		}
+		$end_date = date("Y-m-d");
+		$this->api_config["api_url"] = str_replace("#START_DATE#", $start_date, $this->api_config["api_url"]);
+		$this->api_config["api_url"] = str_replace("#END_DATE#", $end_date, $this->api_config["api_url"]);
 		switch ($this->api_config["data_format"]) {
 			case "csv":
 				$this->read_data_csv();
@@ -128,6 +136,8 @@ class api_parser{
 			}
 			if(!$exists){
 				db::insert_record($this->api_config["table_name"], $record);
+			}else{
+				db::update_record($this->api_config["table_name"], $record, array(), $this->unique[$rec_key]);
 			}
 		}
 	}

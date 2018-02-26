@@ -1,17 +1,18 @@
 <?
 params::$params["api_config"] = array(
-	"service_name" => "advertiser",//Íàçâàíèå ñåðâèñà
-	"api_url" => "https://api3.adsterratools.com/advertiser/e1ee46af6596c438413aaaafea953214/stats.json?start_date=2018-02-15&finish_date=2018-02-16&group_by[]=date",//Àäðåñ API
-	"auth_method" => "inurl token",//Ìåòîä àâòîðèçàöèè
-	"data_format" => "json",//Ôîðìàò îòâåòà
-	"table_name" => "advertiser_json",//Íàçâàíèå òàáëèöû äëÿ äàííûõ
-	"table_engine" => "InnoDB",//Òèï òàáëèöû
-	"fields" => array(//Ñïèñîê ïîëåé
+	"service_name" => "advertiser",//ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐµÑ€Ð²Ð¸ÑÐ°
+	"api_url" => "https://api3.adsterratools.com/advertiser/e1ee46af6596c438413aaaafea953214/stats.json?start_date=#START_DATE#&finish_date=#END_DATE#&group_by[]=date",//ÐÐ´Ñ€ÐµÑ API
+	"auth_method" => "inurl token",//ÐœÐµÑ‚Ð¾Ð´ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸
+	"data_format" => "json",//Ð¤Ð¾Ñ€Ð¼Ð°Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð°
+	"table_name" => "advertiser_json",//ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð´Ð»Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ…
+	"table_engine" => "InnoDB",//Ð¢Ð¸Ð¿ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹
+	"parse_period" => 3,
+	"fields" => array(//Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ð¾Ð»ÐµÐ¹
 		/**
-		* Êëþ÷ ìàññèâà - èìÿ ïîëÿ â ïîëó÷åííûõ îò API äàííûõ
-		* "in_unique"=>"Y" - ïîëå ó÷àñòâóåò â ïðîâåðêå óíèêàëüíîñòè çàïèñè â ÁÄ, "in_unique"=>"N" - íå ó÷àñòâóåò.
-		* type - òèï äàííûõ â ÁÄ
-		* data_field - èìÿ ïîëÿ â ÁÄ
+		* ÐšÐ»ÑŽÑ‡ Ð¼Ð°ÑÑÐ¸Ð²Ð° - Ð¸Ð¼Ñ Ð¿Ð¾Ð»Ñ Ð² Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ñ‹Ñ… Ð¾Ñ‚ API Ð´Ð°Ð½Ð½Ñ‹Ñ…
+		* "in_unique"=>"Y" - Ð¿Ð¾Ð»Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð²ÑƒÐµÑ‚ Ð² Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐµ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ð¾ÑÑ‚Ð¸ Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð² Ð‘Ð”, "in_unique"=>"N" - Ð½Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð²ÑƒÐµÑ‚.
+		* type - Ñ‚Ð¸Ð¿ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² Ð‘Ð”
+		* data_field - Ð¸Ð¼Ñ Ð¿Ð¾Ð»Ñ Ð² Ð‘Ð”
 		*/
 		"date" 			=> array("in_unique"=>"Y", "type"=>"date", 	"data_field"=>"date"),//2018-02-15
 		"impressions" 	=> array("in_unique"=>"N", "type"=>"int", 	"data_field"=>"impressions"),//343371

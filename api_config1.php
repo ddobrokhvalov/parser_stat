@@ -1,17 +1,18 @@
 <?
 params::$params["api_config"] = array(
-	"service_name" => "cpmrevenue",//Íàçâàíèå ñåðâèñà
-	"api_url" => "http://login.revenueonsteroids.com/publisher/svc?action=outcsv&login=support%40cpmrevenue.com&password=axJFrN&channel=ZoneReports&dim=date&f.zone=46498&f.date=2018-02-01_2018-02-21&appType=CPM",//Àäðåñ API
-	"auth_method" => "inurl token",//Ìåòîä àâòîðèçàöèè
-	"data_format" => "csv",//Ôîðìàò îòâåòà
-	"table_name" => "cpmrevenue",//Íàçâàíèå òàáëèöû äëÿ äàííûõ
-	"table_engine" => "InnoDB",//Òèï òàáëèöû
-	"fields" => array(//Ñïèñîê ïîëåé
+	"service_name" => "cpmrevenue",//ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐµÑ€Ð²Ð¸ÑÐ°
+	"api_url" => "http://login.revenueonsteroids.com/publisher/svc?action=outcsv&login=support%40cpmrevenue.com&password=axJFrN&channel=ZoneReports&dim=date&f.zone=46498&f.date=#START_DATE#_#END_DATE#&appType=CPM",//ÐÐ´Ñ€ÐµÑ API
+	"auth_method" => "inurl token",//ÐœÐµÑ‚Ð¾Ð´ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸
+	"data_format" => "csv",//Ð¤Ð¾Ñ€Ð¼Ð°Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð°
+	"table_name" => "cpmrevenue",//ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð´Ð»Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ…
+	"table_engine" => "InnoDB",//Ð¢Ð¸Ð¿ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹
+	"parse_period" => 3,
+	"fields" => array(//Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ð¾Ð»ÐµÐ¹
 		/**
-		* Êëþ÷ ìàññèâà - èìÿ ïîëÿ â ïîëó÷åííûõ îò API äàííûõ
-		* "in_unique"=>"Y" - ïîëå ó÷àñòâóåò â ïðîâåðêå óíèêàëüíîñòè çàïèñè â ÁÄ, "in_unique"=>"N" - íå ó÷àñòâóåò.
-		* type - òèï äàííûõ â ÁÄ
-		* data_field - èìÿ ïîëÿ â ÁÄ
+		* ÐšÐ»ÑŽÑ‡ Ð¼Ð°ÑÑÐ¸Ð²Ð° - Ð¸Ð¼Ñ Ð¿Ð¾Ð»Ñ Ð² Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ñ‹Ñ… Ð¾Ñ‚ API Ð´Ð°Ð½Ð½Ñ‹Ñ…
+		* "in_unique"=>"Y" - Ð¿Ð¾Ð»Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð²ÑƒÐµÑ‚ Ð² Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐµ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ð¾ÑÑ‚Ð¸ Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð² Ð‘Ð”, "in_unique"=>"N" - Ð½Ðµ ÑƒÑ‡Ð°ÑÑ‚Ð²ÑƒÐµÑ‚.
+		* type - Ñ‚Ð¸Ð¿ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² Ð‘Ð”
+		* data_field - Ð¸Ð¼Ñ Ð¿Ð¾Ð»Ñ Ð² Ð‘Ð”
 		*/
 		"Date" 								=> array("in_unique"=>"Y", "type"=>"date", 			"data_field"=>"Date"),//2018-02-01
 		"Gross Requests" 					=> array("in_unique"=>"N", "type"=>"int", 			"data_field"=>"Gross_Requests"),//214549

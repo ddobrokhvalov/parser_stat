@@ -45,7 +45,7 @@ abstract class db_access extends lib_abstract{
 		$values=array();
 		foreach($fields as $key=>$value){
 			$columns[]=$key;
-			if ($special[$key]=='pure')
+			if (isset($special[$key]) && $special[$key]=='pure')
 				$values[] = $value;
 			else
 				$values[]=$this->set_parameter_colon($key);
@@ -66,7 +66,7 @@ abstract class db_access extends lib_abstract{
 			!is_array( $where ) || !count( $where ) ) return;
 	
 		foreach($fields as $key=>$value){
-			if ($special[$key]=='pure')
+			if (isset($special[$key]) && $special[$key]=='pure')
 				$pairs[]="{$key}=$value";
 			else 
 				$pairs[]="{$key}=".$this->set_parameter_colon($key);
@@ -108,7 +108,7 @@ abstract class db_access extends lib_abstract{
 		$sth=$this->prepare_query($query);
 		$params = array();
 		foreach($fields as $key=>$value){
-			if (is_int($special[$key]))
+			if (isset($special[$key]) && is_int($special[$key]))
 				$sth->bindValue($this->set_parameter_colon($key), $value, $special[$key]);
 			else
 				$sth->bindValue($this->set_parameter_colon($key), $value);
